@@ -1,0 +1,250 @@
+:root {
+  --bg: #0f172a;
+  --surface: rgba(15, 23, 42, 0.7);
+  --surface-strong: rgba(30, 41, 59, 0.9);
+  --line: rgba(148, 163, 184, 0.18);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-2: #8b5cf6;
+  --shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 25%),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.16), transparent 28%),
+    linear-gradient(180deg, #020617, #0f172a 45%, #111827);
+}
+
+.page-shell {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 48px;
+}
+
+.hero,
+.card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 32px;
+  border-radius: 28px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+h1,
+h2 {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+h2 {
+  margin-bottom: 0;
+  font-size: 1.5rem;
+}
+
+.hero-text,
+.muted,
+.order-row p,
+.chip span,
+.metric span {
+  color: var(--muted);
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.summary-card {
+  grid-column: 1 / -1;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.metric {
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+.metric strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.8rem;
+}
+
+.chart {
+  display: grid;
+  grid-template-columns: repeat(14, minmax(0, 1fr));
+  gap: 10px;
+  align-items: end;
+  min-height: 260px;
+}
+
+.chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-bar-wrap {
+  width: 100%;
+  height: 190px;
+  display: flex;
+  align-items: end;
+}
+
+.chart-bar {
+  width: 100%;
+  border-radius: 14px 14px 6px 6px;
+  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+}
+
+.chart-col strong {
+  font-size: 0.95rem;
+}
+
+.chart-col span {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.chip {
+  min-width: 180px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+.chip strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.orders-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+}
+
+.order-row strong,
+.chip strong {
+  color: #fff;
+}
+
+.order-row p {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+}
+
+.error {
+  margin: 0;
+  color: #fda4af;
+}
+
+@media (max-width: 960px) {
+  .layout,
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .order-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 20px, 1200px);
+    padding-top: 20px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chart {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RetailCRM Dashboard Demo</title>
+  <meta name="description" content="Дашборд заказов из RetailCRM и Supabase">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">RetailCRM → Supabase → Vercel</p>
+        <h1>Дашборд заказов и Telegram-уведомлений</h1>
+        <p class="hero-text">
+          Эта страница берет агрегированные данные из Supabase через Vercel API и показывает динамику заказов,
+          средний чек и заказы с высокой суммой.
+        </p>
+      </div>
+      <a class="hero-link" href="./api/health" target="_blank" rel="noreferrer">Проверить API</a>
+    </header>
+
+    <main class="layout">
+      <section class="card summary-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Summary</p>
+            <h2>Ключевые метрики</h2>
+          </div>
+          <span id="generated-at" class="muted">Обновление...</span>
+        </div>
+        <div id="summary-grid" class="summary-grid"></div>
+      </section>
+
+      <section class="card chart-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Orders Chart</p>
+            <h2>Заказы за последние 14 дней</h2>
+          </div>
+        </div>
+        <div id="chart" class="chart"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Cities</p>
+            <h2>Топ городов</h2>
+          </div>
+        </div>
+        <div id="cities" class="chips"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Recent Orders</p>
+            <h2>Последние заказы</h2>
+          </div>
+        </div>
+        <div id="recent-orders" class="orders-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
